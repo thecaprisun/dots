@@ -1,7 +1,7 @@
 # DOTFILES
 This are my personal dotfiles, for i3.
 
-![image](https://github.com/thecaprisun/dots/assets/156376854/8c45c226-046a-4860-82dd-c2d4fc0b8151)
+![image](https://github.com/thecaprisun/dots/assets/156376854/1b70b0b0-e318-420d-90fb-9302c96b62aa)
 
 Dependencies are:
 ```
