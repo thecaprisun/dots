@@ -15,7 +15,7 @@
 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec polybar
-exec compfy
+exec picom
 exec nitrogen --restore
 exec setxkbmap -layout it
 exec --no-startup-id dex --autostart --environment i3
