@@ -33,7 +33,7 @@ save_to_clipboard = true
 [window]
 decorations = "none"
 dynamic_title = true
-opacity = 1.0
+opacity = 0  
 dynamic_padding = true
 
 [window.padding]
@@ -63,7 +63,7 @@ bold_italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
 # \___| \___/ ____| \___/ _|_\ ____/
 
 [colors.primary]
-background = "#1a1b26"
+background = "#000000"
 foreground = "#c0caf5"
 
 [colors.cursor]

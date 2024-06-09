@@ -46,7 +46,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym $mod+Return exec alacritty
 bindsym $mod+e exec nautilus
 bindsym $mod+Shift+q kill
-bindcode $mod+40 exec "sh /home/sun/.config/rofi/launchers/type-1/launcher.sh"
+bindcode $mod+40 exec "rofi -show drun"
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
