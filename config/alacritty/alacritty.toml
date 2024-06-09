@@ -1,0 +1,105 @@
+#  █████╗ ██╗      █████╗  ██████╗██████╗ ██╗████████╗████████╗██╗   ██╗
+# ██╔══██╗██║     ██╔══██╗██╔════╝██╔══██╗██║╚══██╔══╝╚══██╔══╝╚██╗ ██╔╝
+# ███████║██║     ███████║██║     ██████╔╝██║   ██║      ██║    ╚████╔╝ 
+# ██╔══██║██║     ██╔══██║██║     ██╔══██╗██║   ██║      ██║     ╚██╔╝  
+# ██║  ██║███████╗██║  ██║╚██████╗██║  ██║██║   ██║      ██║      ██║   
+# ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝   ╚═╝      ╚═╝      ╚═╝   
+#  ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗
+# ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝ 
+# ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗    from github.com/thecaprisun/dots
+# ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║    add me on discord, _the.sun_
+# ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝    email me at sun@bleedingbox.dev
+#  ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝
+
+
+
+
+#   __|  __| __ __| __ __| _ _|   \ |   __|   __|
+# \__ \  _|     |      |     |   .  |  (_ | \__ \
+# ____/ ___|   _|     _|   ___| _|\_| \___| ____/
+
+[cursor]
+blink_interval = 550
+unfocused_hollow = false
+thickness = 0.15
+
+[cursor.style]
+blinking = "On"
+shape = "Block"
+
+[selection]
+save_to_clipboard = true
+
+[window]
+decorations = "none"
+dynamic_title = true
+opacity = 1.0
+dynamic_padding = true
+
+[window.padding]
+x = 15
+y = 15
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+#  __| _ \   \ | __ __| __|
+#  _| (   | .  |    | \__ \
+# _| \___/ _|\_|   _| ____/
+
+[font]
+size = 6
+
+builtin_box_drawing = true
+
+normal = { family = "JetBrainsMono NF", style = "Regular" }
+bold = { family = "JetBrainsMono NF", style = "Bold" }
+italic = { family = "JetBrainsMono NF", style = "Italic" }
+bold_italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
+
+#   __|   _ \  |      _ \  _ \   __|
+#  (     (   | |     (   |   / \__ \
+# \___| \___/ ____| \___/ _|_\ ____/
+
+[colors.primary]
+background = "#1a1b26"
+foreground = "#c0caf5"
+
+[colors.cursor]
+cursor = "#c0caf5"
+text = "#1a1b26"
+
+[colors.normal]
+black = "#15161e"
+blue = "#7aa2f7"
+cyan = "#7dcfff"
+green = "#9ece6a"
+magenta = "#bb9af7"
+red = "#f7768e"
+white = "#a9b1d6"
+yellow = "#e0af68"
+
+[colors.bright]
+black = "#414868"
+blue = "#7aa2f7"
+cyan = "#7dcfff"
+green = "#9ece6a"
+magenta = "#bb9af7"
+red = "#f7768e"
+white = "#c0caf5"
+yellow = "#e0af68"
+
+#      ******       ******
+#    **********   **********
+#  ************* *************
+# *****************************
+# *****************************
+# *****************************
+#  ***************************
+#    ***********************
+#      *******************
+#        ***************
+#          ***********
+#            *******
+#              ***
