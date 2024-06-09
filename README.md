@@ -12,6 +12,7 @@ rofi
 vim
 picom
 nitrogen
+polkit-gnome
 ```
 
 You can install them with this command:
