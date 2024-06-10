@@ -5,14 +5,7 @@ This are my personal dotfiles, for i3.
 
 Dependencies are:
 ```
-i3
-polybar
-alacritty
-rofi
-vim
-picom
-nitrogen
-polkit-gnome
+i3 polybar alacritty rofi vim picom nitrogen polkit-gnome
 ```
 
 You can install them with this command:
