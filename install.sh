@@ -23,9 +23,6 @@ echo "║This will install my dotfiles onto your system.                        
 echo "║Your current configurations (if you have any) will be backed up to ~/.old-configs.║"
 echo "╚══════════════════════════════════════════════════════════════════════════════════╝"
 
-read -p "Do you want to continue? " -n 1 -r
-echo
-
 echo "Do you want to continue?(Y/n)"
 read input
 if [ "$input" == "yes" ]
