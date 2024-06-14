@@ -5,13 +5,13 @@ This are my personal dotfiles, for i3.
 
 Dependencies are:
 ```
-i3 polybar alacritty rofi vim picom nitrogen polkit-gnome pulseaudio
+i3 polybar alacritty rofi vim picom nitrogen polkit-gnome pulseaudio wget curl
 ```
 
-You can install them with this command:
+You can install the dotfiles with this command:
 
 ```
-wget blob:https://github.com/38b5fdea-637f-45ec-a1ae-9f48d37c73ea && chmod +x ./install.sh && ./install.sh
+curl https://raw.githubusercontent.com/thecaprisun/dots/main/install.sh | bash
 ```
 
 Here's the wallpaper
