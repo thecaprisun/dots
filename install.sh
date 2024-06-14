@@ -18,15 +18,15 @@ echo "██║██║╚██╗██║╚════██║   ██�
 echo "██║██║ ╚████║███████║   ██║   ██║  ██║███████╗███████╗██╗███████║██║  ██║"
 echo "╚═╝╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝╚══════╝╚═╝  ╚═╝"
 
-sleep 2
+echo "╔══════════════════════════════════════════════════════════════════════════════════╗"
+echo "║This will install my dotfiles onto your system.                                   ║"
+echo "║Your current configurations (if you have any) will be backed up to ~/.old-configs.║"
+echo "╚══════════════════════════════════════════════════════════════════════════════════╝"
 
-echo
-echo "This will install my dotfiles onto your system."
-sleep 2
-
-echo "Your current configurations (if you have any) will be backed up to ~/.old-configs."
-sleep 2
-
+read -p "Do you want to continue? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
 echo "Installing packages..."
 
 packages="i3 polybar alacritty rofi vim picom nitrogen polkit-gnome pulseaudio"
@@ -149,6 +149,8 @@ mkdir ~/.local/share/fonts
 unzip -d ~/.local/share/fonts JetBrainsMono.zip
 
 echo "Done!"
+
+fi
 
 #      ******       ******
 #    **********   **********
