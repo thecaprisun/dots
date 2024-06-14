@@ -24,10 +24,13 @@ echo "║Your current configurations (if you have any) will be backed up to ~/.o
 echo "╚══════════════════════════════════════════════════════════════════════════════════╝"
 
 read -p "Do you want to continue? " -n 1 -r
-echo    # (optional) move to a new line
-if [[ $REPLY =~ ^[Yy]$ ]]
+echo
+
+echo "Do you want to continue?(Y/n)"
+read input
+if [ "$input" == "yes" ]
 then
-echo "Installing packages..."
+fi
 
 packages="i3 polybar alacritty rofi vim picom nitrogen polkit-gnome pulseaudio"
 
@@ -150,7 +153,6 @@ unzip -d ~/.local/share/fonts JetBrainsMono.zip
 
 echo "Done!"
 
-fi
 
 #      ******       ******
 #    **********   **********
