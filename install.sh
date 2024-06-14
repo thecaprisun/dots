@@ -18,17 +18,92 @@ echo "██║██║╚██╗██║╚════██║   ██�
 echo "██║██║ ╚████║███████║   ██║   ██║  ██║███████╗███████╗██╗███████║██║  ██║"
 echo "╚═╝╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝╚══════╝╚═╝  ╚═╝"
 
-sleep 1
+sleep 2
 
 echo
 echo "This will install my dotfiles onto your system."
-sleep 1
-
-echo "For now you will have to install the dependencies specified in the readme by hand, sorry for the inconvenienve, this will be automatic in a future version."
 sleep 2
 
 echo "Your current configurations (if you have any) will be backed up to ~/.old-configs."
 sleep 2
+
+echo "Installing packages..."
+
+packages="i3 polybar alacritty rofi vim picom nitrogen polkit-gnome pulseaudio"
+
+install_packages() {
+    local pkg_manager=$1
+    local install_command=$2
+
+    echo "Installing packages using $pkg_manager..."
+    sudo $install_command $packages
+}
+
+echo "Detecting package manager..."
+if command -v apt-get >/dev/null; then
+    pkg_manager="apt-get"
+    install_command="apt-get install -y"
+    echo "Detected apt-get"
+elif command -v yum >/dev/null; then
+    pkg_manager="yum"
+    install_command="yum install -y"
+    echo "Detected yum"
+elif command -v dnf >/dev/null; then
+    pkg_manager="dnf"
+    install_command="dnf install -y"
+    echo "Detected dnf"
+elif command -v pacman >/dev/null; then
+    pkg_manager="pacman"
+    install_command="pacman -S --noconfirm"
+    echo "Detected pacman"
+elif command -v zypper >/dev/null; then
+    pkg_manager="zypper"
+    install_command="zypper install -y"
+    echo "Detected zypper"
+elif command -v emerge >/dev/null; then
+    pkg_manager="emerge"
+    install_command="emerge"
+    echo "Detected emerge"
+elif command -v xbps-install >/dev/null; then
+    pkg_manager="xbps-install"
+    install_command="xbps-install -Sy"
+    echo "Detected xbps-install"
+elif command -v apk >/dev/null; then
+    pkg_manager="apk"
+    install_command="apk add"
+    echo "Detected apk"
+else
+    echo "Error: No supported package manager found, you'll have to install the dependencies by hand."
+    pkg_manager=""
+fi
+
+echo "Updating the system..."
+
+if [ "$pkg_manager" = "apt-get" ]; then
+    echo "Updating package lists for apt-get..."
+    sudo apt-get update
+elif [ "$pkg_manager" = "dnf" ] || [ "$pkg_manager" = "yum" ]; then
+    echo "Updating package lists for $pkg_manager..."
+    sudo $pkg_manager makecache
+elif [ "$pkg_manager" = "zypper" ]; then
+    echo "Updating package lists for zypper..."
+    sudo zypper refresh
+elif [ "$pkg_manager" = "xbps-install" ]; then
+    echo "Updating package lists for xbps-install..."
+    sudo xbps-install -Syu
+elif [ "$pkg_manager" = "apk" ]; then
+    echo "Updating package lists for apk..."
+    sudo apk update
+fi
+
+echo "Installing the packages..."
+
+if [ -n "$pkg_manager" ]; then
+    install_packages $pkg_manager "$install_command"
+    echo "Installation of packages completed."
+else
+    echo "Skipping package installation due to unsupported package manager."
+fi
 
 echo "Backing up i3, polybar, alacritty, rofi and picom configs to ~/.old-configs..."
 
