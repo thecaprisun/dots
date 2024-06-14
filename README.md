@@ -14,6 +14,4 @@ You can install the dotfiles with this command:
 curl https://raw.githubusercontent.com/thecaprisun/dots/main/install.sh | bash
 ```
 
-Here's the wallpaper
-
-![wall](https://github.com/thecaprisun/dots/assets/156376854/3e51c682-3183-4791-86a9-8edb0f93df5e)
+Get the wallpaper from [Anselscool's wallpaper repo](https://github.com/anslescool/wallpapers)
