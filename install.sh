@@ -23,10 +23,11 @@ echo "║This will install my dotfiles onto your system.                        
 echo "║Your current configurations (if you have any) will be backed up to ~/.old-configs.║"
 echo "╚══════════════════════════════════════════════════════════════════════════════════╝"
 
-echo "Do you want to continue?(Y/n)"
+echo "Do you want to continue? (yes/n)"
 read input
-if [ "$input" == "yes" ]
-then
+if [ "$input" != "yes" ]; then
+    echo "Aborting installation."
+    exit 1
 fi
 
 packages="i3 polybar alacritty rofi vim picom nitrogen polkit-gnome pulseaudio"
@@ -77,79 +78,62 @@ else
     pkg_manager=""
 fi
 
-echo "Updating the system..."
-
-if [ "$pkg_manager" = "apt-get" ]; then
-    echo "Updating package lists for apt-get..."
-    sudo apt-get update
-elif [ "$pkg_manager" = "dnf" ] || [ "$pkg_manager" = "yum" ]; then
-    echo "Updating package lists for $pkg_manager..."
-    sudo $pkg_manager makecache
-elif [ "$pkg_manager" = "zypper" ]; then
-    echo "Updating package lists for zypper..."
-    sudo zypper refresh
-elif [ "$pkg_manager" = "xbps-install" ]; then
-    echo "Updating package lists for xbps-install..."
-    sudo xbps-install -Syu
-elif [ "$pkg_manager" = "apk" ]; then
-    echo "Updating package lists for apk..."
-    sudo apk update
-fi
-
-echo "Installing the packages..."
-
 if [ -n "$pkg_manager" ]; then
+    echo "Updating the system..."
+    case $pkg_manager in
+        apt-get)
+            sudo apt-get update
+            ;;
+        dnf | yum)
+            sudo $pkg_manager makecache
+            ;;
+        zypper)
+            sudo zypper refresh
+            ;;
+        xbps-install)
+            sudo xbps-install -Syu
+            ;;
+        apk)
+            sudo apk update
+            ;;
+    esac
     install_packages $pkg_manager "$install_command"
     echo "Installation of packages completed."
 else
     echo "Skipping package installation due to unsupported package manager."
 fi
 
-echo "Backing up i3, polybar, alacritty, rofi and picom configs to ~/.old-configs..."
+echo "Backing up current configurations to ~/.old-configs..."
 
-mkdir ~/.old-configs
+backup_dir=~/.old-configs
+mkdir -p $backup_dir
 
-cp -r ~/.config/i3 ~/.old-configs
-cp -r ~/.config/alacritty ~/.old-configs
-cp -r ~/.config/polybar ~/.old-configs
-cp -r ~/.config/rofi ~/.old-configs
-cp -r ~/.config/picom.conf ~/.old-configs
-cp -r ~/.vimrc ~/.old-configs
-cp -r ~/.config/i3 ~/.old-configs
+configs=("i3" "alacritty" "polybar" "rofi" "picom.conf" "vimrc")
 
-rm -rf ~/.config/alacritty
-rm -rf ~/.config/polybar
-rm -rf ~/.config/rofi
-rm -rf ~/.config/picom.conf
-rm -rf ~/.vimrc
+for config in "${configs[@]}"; do
+    if [ -e ~/.config/$config ] || [ -e ~/$config ]; then
+        cp -r ~/.config/$config $backup_dir 2>/dev/null || cp ~/$config $backup_dir
+    fi
+done
+
+echo "Removing old configurations..."
+for config in "${configs[@]}"; do
+    rm -rf ~/.config/$config 2>/dev/null || rm -f ~/$config
+done
 
 echo "Cloning the dotfiles repo..."
-
 git clone https://github.com/thecaprisun/dots
 
 echo "Moving the new dotfiles..."
-
 cd dots
-cp -r ~/.config/ .
-cp -r ./config/* ~/.config
-cp -r ./.vimrc ~
-
-echo
+cp -r config/* ~/.config/
+cp .vimrc ~/
 
 echo "Installing JetBrainsMono Nerd Font..."
-
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip
-
-mkdir ~/.local/
-
-mkdir ~/.local/share/
-
-mkdir ~/.local/share/fonts
-
 unzip -d ~/.local/share/fonts JetBrainsMono.zip
 
 echo "Done!"
-
 
 #      ******       ******
 #    **********   **********
