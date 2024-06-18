@@ -132,7 +132,7 @@ cp -r config/* ~/.config/
 cp .vimrc ~/
 
 echo "Installing JetBrainsMono Nerd Font..."
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip
+curl -L -o JetBrainsMono.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip
 unzip -d ~/.local/share/fonts JetBrainsMono.zip
 
 echo "Done!"
