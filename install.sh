@@ -26,7 +26,7 @@ echo "║Your current configurations (if you have any) will be backed up to ~/.o
 echo "╚══════════════════════════════════════════════════════════════════════════════════╝"
 
 echo "Do you want to continue? (y/n)"
-read input
+read input < /dev/tty
 if [ "$input" != "y" ]; then
     echo "Aborting."
     exit 1
