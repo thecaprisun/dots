@@ -23,9 +23,9 @@ echo "║This will install my dotfiles onto your system.                        
 echo "║Your current configurations (if you have any) will be backed up to ~/.old-configs.║"
 echo "╚══════════════════════════════════════════════════════════════════════════════════╝"
 
-echo "Do you want to continue? (yes/n)"
+echo "Do you want to continue? (y/n)"
 read input
-if [ "$input" != "yes" ]; then
+if [ "$input" != "y" ]; then
     echo "Aborting installation."
     exit 1
 fi
