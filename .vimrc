@@ -12,23 +12,9 @@ vim9script
 # _|  ____| \__/ \___| ___| _|\_| ____/
 
 plug#begin()
-Plug 'girishji/vimcomplete'
 Plug 'ap/vim-css-color'
 Plug 'yggdroot/indentline'
 plug#end()
-
-# vimcomplete config
-
-var dictproperties = {
-    python: { sortedDict: false },
-    text: { sortedDict: true }
-}
-var vcoptions = {
-    dictionary: { enable: true, priority: 11, filetypes: ['python', 'text'], properties: dictproperties },
-}
-autocmd VimEnter * g:VimCompleteOptionsSet(vcoptions)
-autocmd FileType text set dictionary+=/usr/share/dict/words
-autocmd FileType python set dictionary=$HOME/.vim/data/pythondict
 
 #   __|  __| __ __| __ __| _ _|   \ |   __|   __|
 # \__ \  _|     |      |     |   .  |  (_ | \__ \
