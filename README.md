@@ -1,4 +1,6 @@
-# DOTFILES
+# I consider the dotfiles complete. Don't expect any updates. I might start a new repository, but this will stop being active.
+
+## DOTFILES
 This are my personal dotfiles, for i3.
 
 ![image](https://github.com/thecaprisun/dots/assets/156376854/de03ae98-74b5-4afb-ae9e-bbc12598ab2b)
