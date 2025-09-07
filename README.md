@@ -1,5 +1,3 @@
-# I consider the dotfiles complete. Don't expect any updates. I might start a new repository, but this will stop being active.
-
 ## DOTFILES
 This are my personal dotfiles, for i3.
 
